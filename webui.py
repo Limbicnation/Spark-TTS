@@ -250,6 +250,11 @@ def parse_arguments():
         default=7860,
         help="Server port for Gradio app."
     )
+    parser.add_argument(
+        "--share",
+        action="store_true",
+        help="Create a shareable link for the interface."
+    )
     return parser.parse_args()
 
 if __name__ == "__main__":
@@ -265,5 +270,6 @@ if __name__ == "__main__":
     # Launch Gradio with the specified server name and port
     demo.launch(
         server_name=args.server_name,
-        server_port=args.server_port
+        server_port=args.server_port,
+        share=True  # Always create a shareable link
     )
